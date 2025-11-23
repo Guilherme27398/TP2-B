@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="cars">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="car" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="year" type="xs:nonNegativeInteger">
+                <xs:annotation>
+                  <xs:documentation>Ano do carro (obrigatorio, deve ser numero positivo)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="make" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Marca do carro (opcional)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="model" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Modelo do carro (opcional)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="trim" type="xs:string" minOccurs="0"/>
+              <xs:element name="body" type="xs:string" minOccurs="0"/>
+              <xs:element name="transmission" type="xs:string" minOccurs="0"/>
+              <xs:element name="vin" type="xs:string" minOccurs="0"/>
+              <xs:element name="state">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:minLength value="1"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="condition" type="xs:nonNegativeInteger" minOccurs="0"/>
+              <xs:element name="odometer" type="xs:nonNegativeInteger" minOccurs="0"/>
+              <xs:element name="color" type="xs:string" minOccurs="0"/>
+              <xs:element name="interior" type="xs:string" minOccurs="0"/>
+              <xs:element name="seller">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:minLength value="1"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mmr" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>MMR - Manheim Market Report (opcional, deve ser decimal)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="sellingprice" type="xs:decimal" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Preco de venda (opcional, deve ser decimal positivo)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="saledate" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,38 @@
+services:
+  converter:
+    build: .
+    volumes:
+      - .:/app
+    command: python converter.py
+    networks:
+      - car-network
+
+  xmlrpc-server:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: sh -c "sleep 3 && python xmlrpc_server.py"
+    depends_on:
+      - converter
+    networks:
+      - car-network
+
+  grpc-server:
+    build: .
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/app
+    command: sh -c "sleep 3 && python grpc_server.py"
+    depends_on:
+      - converter
+    networks:
+      - car-network
+
+networks:
+  car-network:
+    driver: bridge
+
+

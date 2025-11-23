@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package car_service;
+
+service CarService {
+  rpc GetCarsByMake(MakeRequest) returns (CarList) {}
+  rpc GetCarsByState(StateRequest) returns (CarList) {}
+  rpc GetAveragePriceByMake(MakeRequest) returns (AveragePrice) {}
+  rpc XPathQuery(XPathRequest) returns (CarList) {}
+  rpc GetAllMakes(Empty) returns (MakeList) {}
+  rpc GetAllStates(Empty) returns (StateList) {}
+  rpc StreamCarsByMake(MakeRequest) returns (stream Car) {}
+  rpc StreamCarsByState(StateRequest) returns (stream Car) {}
+}
+
+message Empty {}
+
+message MakeRequest {
+  string make = 1;
+}
+
+message StateRequest {
+  string state = 1;
+}
+
+message XPathRequest {
+  string xpath = 1;
+}
+
+message Car {
+  string year = 1;
+  string make = 2;
+  string model = 3;
+  string trim = 4;
+  string body = 5;
+  string transmission = 6;
+  string vin = 7;
+  string state = 8;
+  int32 condition = 9;
+  int32 odometer = 10;
+  string color = 11;
+  string interior = 12;
+  string seller = 13;
+  double mmr = 14;
+  double sellingprice = 15;
+  string saledate = 16;
+}
+
+message CarList {
+  repeated Car cars = 1;
+}
+
+message AveragePrice {
+  string make = 1;
+  double average_price = 2;
+  int32 count = 3;
+}
+
+message MakeList {
+  repeated string makes = 1;
+}
+
+message StateList {
+  repeated string states = 1;
+}
+
+
+

@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Arquivos gerados
+*.pb2.py
+*.pb2_grpc.py
+
+# Arquivos grandes (muito grandes para GitHub - usar Git LFS se necessário)
+car_prices.csv
+car_prices.xml
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+
+
