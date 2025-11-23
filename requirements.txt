@@ -1,6 +1,0 @@
-lxml==4.9.3
-grpcio==1.60.0
-grpcio-tools==1.60.0
-
-
-
